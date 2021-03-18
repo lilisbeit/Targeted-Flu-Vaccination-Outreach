@@ -51,3 +51,26 @@ def score(X_train, X_test, y_train, y_test, clf):
     print('F1 Scores')
     print('Train:', f1_score(y_train, y_train_pred))
     print('Test:', f1_score(y_test, y_test_pred))
+    
+def eval_tree(X_train, X_test, y_train, y_test, tree):
+    
+    tree.fit(X_train, y_train)
+
+    y_train_pred = tree.predict(X_train)
+    y_test_pred = tree.predict(X_test)
+
+    print('ROC Scores')
+    print('Train:', roc_auc_score(y_train, tree.predict_proba(X_train)[:,1]))
+    print('Test:', roc_auc_score(y_test, tree.predict_proba(X_test)[:,1]))
+    print('\n')
+    print('Accuracy Scores')
+    print('Train:', accuracy_score(y_train, y_train_pred))
+    print('Test:', accuracy_score(y_test, y_test_pred))
+    print('\n')
+    print('F1 Scores')
+    print('Train:', f1_score(y_train, y_train_pred))
+    print('Test:', f1_score(y_test, y_test_pred))
+
+    plot_roc_curve(tree, X_train, y_train)
+    plot_roc_curve(tree, X_test, y_test);
+    
