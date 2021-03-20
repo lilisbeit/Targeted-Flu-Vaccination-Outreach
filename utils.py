@@ -33,35 +33,17 @@ def logreg_predict_score(X_train, X_test, y_train, y_test):
     print('Test:', f1_score(y_test, y_test_pred))
     
     return logreg
+    
+def eval_model(X_train, X_test, y_train, y_test, model):
+    
+    model.fit(X_train, y_train)
 
-def score(X_train, X_test, y_train, y_test, clf):
-    
-    # generate predictions
-    y_train_pred = clf.predict(X_train)
-    y_test_pred = clf.predict(X_test)
-    
-    print('ROC Scores')
-    print('Train:', roc_auc_score(y_train, clf.decision_function(X_train)))
-    print('Test:', roc_auc_score(y_test, clf.decision_function(X_test)))
-    print('\n')
-    print('Accuracy Scores')
-    print('Train:', accuracy_score(y_train, y_train_pred))
-    print('Test:', accuracy_score(y_test, y_test_pred))
-    print('\n')
-    print('F1 Scores')
-    print('Train:', f1_score(y_train, y_train_pred))
-    print('Test:', f1_score(y_test, y_test_pred))
-    
-def eval_tree(X_train, X_test, y_train, y_test, tree):
-    
-    tree.fit(X_train, y_train)
-
-    y_train_pred = tree.predict(X_train)
-    y_test_pred = tree.predict(X_test)
+    y_train_pred = model.predict(X_train)
+    y_test_pred = model.predict(X_test)
 
     print('ROC Scores')
-    print('Train:', roc_auc_score(y_train, tree.predict_proba(X_train)[:,1]))
-    print('Test:', roc_auc_score(y_test, tree.predict_proba(X_test)[:,1]))
+    print('Train:', roc_auc_score(y_train, model.predict_proba(X_train)[:,1]))
+    print('Test:', roc_auc_score(y_test, model.predict_proba(X_test)[:,1]))
     print('\n')
     print('Accuracy Scores')
     print('Train:', accuracy_score(y_train, y_train_pred))
@@ -71,6 +53,6 @@ def eval_tree(X_train, X_test, y_train, y_test, tree):
     print('Train:', f1_score(y_train, y_train_pred))
     print('Test:', f1_score(y_test, y_test_pred))
 
-    plot_roc_curve(tree, X_train, y_train)
-    plot_roc_curve(tree, X_test, y_test);
+    plot_roc_curve(model, X_train, y_train)
+    plot_roc_curve(model, X_test, y_test);
     
