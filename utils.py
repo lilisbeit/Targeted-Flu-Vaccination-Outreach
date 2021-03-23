@@ -56,3 +56,17 @@ def eval_model(X_train, X_test, y_train, y_test, model):
     plot_roc_curve(model, X_train, y_train)
     plot_roc_curve(model, X_test, y_test);
     
+def order_features(weights, X_train):
+    
+    coef_dict = {}
+
+    for n, c in enumerate(X_train.columns):
+        coef_dict[c]=round(weights[n],4)
+
+    sorted_coef_dict = {k: v for k, v in sorted(coef_dict.items(), key=lambda item: item[1], reverse=True)}
+    df = pd.DataFrame.from_dict(sorted_coef_dict, orient='index', columns=['weight'])
+    df['abs_weight']=np.abs(df['weight'])
+    weights_df = df.sort_values(by = 'abs_weight', ascending=False)
+    
+    return weights_df
+    
