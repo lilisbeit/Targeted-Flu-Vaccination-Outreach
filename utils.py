@@ -4,8 +4,8 @@ import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
 
-from sklearn.model_selection import train_test_split
-from sklearn.metrics import roc_auc_score, plot_roc_curve, accuracy_score, f1_score
+from sklearn.model_selection import train_test_split, cross_val_score
+from sklearn.metrics import roc_auc_score, plot_roc_curve, accuracy_score, f1_score, plot_confusion_matrix
 from sklearn.linear_model import LogisticRegression
 from sklearn.preprocessing import StandardScaler, MinMaxScaler
 
@@ -31,6 +31,12 @@ def logreg_predict_score(X_train, X_test, y_train, y_test):
     print('F1 Scores')
     print('Train:', f1_score(y_train, y_train_pred))
     print('Test:', f1_score(y_test, y_test_pred))
+    print('\n')
+    print('Cross-Validation Scores:')
+    print('Train:')
+    print(cross_val_score(logreg, X_train, y_train))
+    print('Test:')
+    print(cross_val_score(logreg, X_test, y_test))
     
     return logreg
     
@@ -52,9 +58,15 @@ def eval_model(X_train, X_test, y_train, y_test, model):
     print('F1 Scores')
     print('Train:', f1_score(y_train, y_train_pred))
     print('Test:', f1_score(y_test, y_test_pred))
-
+    print('Train ROC Curve')
     plot_roc_curve(model, X_train, y_train)
-    plot_roc_curve(model, X_test, y_test);
+    print('Test ROC Curve')
+    plot_roc_curve(model, X_test, y_test)
+    
+    print('Train Confusion Matrix:')
+    plot_confusion_matrix(model, X_train, y_train)
+    print('Test Confusion Matrix:')
+    plot_confusion_matrix(model, X_test, y_test)
     
 def order_features(weights, X_train):
     
