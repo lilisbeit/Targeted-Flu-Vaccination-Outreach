@@ -34,9 +34,9 @@ def logreg_predict_score(X_train, X_test, y_train, y_test):
     print('\n')
     print('Cross-Validation Scores:')
     print('Train:')
-    print(cross_val_score(logreg, X_train, y_train))
+    print(cross_val_score(logreg, X_train, y_train, scoring='roc_auc'))
     print('Test:')
-    print(cross_val_score(logreg, X_test, y_test))
+    print(cross_val_score(logreg, X_test, y_test, scoring='roc_auc'))
     
     return logreg
     
@@ -67,7 +67,16 @@ def eval_model(X_train, X_test, y_train, y_test, model):
     plot_confusion_matrix(model, X_train, y_train)
     print('Test Confusion Matrix:')
     plot_confusion_matrix(model, X_test, y_test)
+
+def roc_auc_cross_val(X_train, X_test, y_train, y_test, model):
+
+    print('Train ROC-AUC Cross Validation:', cross_val_score(model, X_train, y_train, scoring='roc_auc'))
+    print('Train Mean:', round(cross_val_score(model, X_train, y_train, scoring='roc_auc').mean(), 3))
+    print('\n')
+    print('Test ROC-AUC Cross Validation:', cross_val_score(model, X_test, y_test, scoring='roc_auc'))
+    print('Test Mean:', round(cross_val_score(model, X_test, y_test, scoring='roc_auc').mean(),3))
     
+
 def order_features(weights, X_train):
     
     coef_dict = {}
