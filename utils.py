@@ -35,8 +35,10 @@ def logreg_predict_score(X_train, X_test, y_train, y_test):
     print('Cross-Validation Scores:')
     print('Train:')
     print(cross_val_score(logreg, X_train, y_train, scoring='roc_auc'))
+    print('Mean:', round(cross_val_score(logreg, X_train, y_train, scoring='roc_auc').mean(), 3))
     print('Test:')
     print(cross_val_score(logreg, X_test, y_test, scoring='roc_auc'))
+    print('Mean:', round(cross_val_score(logreg, X_test, y_test, scoring='roc_auc').mean(),3))
     
     return logreg
     
@@ -90,4 +92,6 @@ def order_features(weights, X_train):
     weights_df = df.sort_values(by = 'abs_weight', ascending=False)
     
     return weights_df
+
+
     
