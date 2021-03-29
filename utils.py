@@ -60,14 +60,10 @@ def eval_model(X_train, X_test, y_train, y_test, model):
     print('F1 Scores')
     print('Train:', f1_score(y_train, y_train_pred))
     print('Test:', f1_score(y_test, y_test_pred))
-    print('Train ROC Curve')
-    plot_roc_curve(model, X_train, y_train)
-    print('Test ROC Curve')
-    plot_roc_curve(model, X_test, y_test)
     
-    print('Train Confusion Matrix:')
+    plot_roc_curve(model, X_train, y_train)
+    plot_roc_curve(model, X_test, y_test)
     plot_confusion_matrix(model, X_train, y_train)
-    print('Test Confusion Matrix:')
     plot_confusion_matrix(model, X_test, y_test)
 
 def roc_auc_cross_val(X_train, X_test, y_train, y_test, model):
