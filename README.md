@@ -21,7 +21,6 @@ The data contain over 20,000 survey responses, and show that about 47% of respon
 
 
 ## Modeling
-Baseline Model
 A [baseline logistic regression model](https://github.com/lilisbeit/vaccine-learning/blob/main/baseline-model.ipynb) produced a ROC-AUC score of 0.76 on both the training and test sets.
 
 After feature engineering to reduce the number of columns, a final logistic regression model had a ROC-AUC score of 0.78 for the test and train sets.  Feature engineering and modeling can be viewed in the [final model notebook](http://localhost:8888/notebooks/final-model.ipynb), as can the other models tested.
@@ -32,9 +31,13 @@ I also tested a Decision Tree model, a bagged Decision Tree, a Random Forest, an
 
 ### Recommendations
 
-As shown in the presentation, the most influential predictor of vaccination is whether or not the respondent's doctor recommended the flu vaccine. This suggests that reaching out to patients who have not had a doctor visit during flu season may improve vaccination rates. It also implies that patients trust their doctors and respond well to their advice.
+As shown in the [presentation](https://github.com/lilisbeit/vaccine-learning/blob/main/Vaccination-Outreach-Presentation.pdf), the most influential predictor of vaccination is whether or not the respondent's doctor recommended the flu vaccine. This suggests that reaching out to patients who have not had a doctor visit during flu season may improve vaccination rates. It also implies that patients trust their doctors and respond well to their advice.
+
+![graph](images/doc_rec.png)
 
 Health insurance status and urban/rural designation also emerge as influential variables.  The interaction between them is complicated, as lower vaccination rates in rural areas seem to be linked to the uninsured population there.  Lovelace should prioritize their uninsured population for outreach, with a secondary focus on rural patients.  
+
+![graph](images/insurance.png)
 
 Finally, it appears that young people are less likely to get the flu vaccine.  Lovelace should target 18-34-year-olds if they want to boost population immunity.
 
