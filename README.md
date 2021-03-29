@@ -3,7 +3,7 @@
 **Author:** Lili Beit
 ***
 
-![picture of vaccination syringe and medicine](images/vaccine.jpg)
+![test](images/vaccine.jpg)
 
 ## Overview
 Lovelace Health, a Federally Qualified Health Center, wishes to increase the proportion of its patients who receive the flu vaccine.  The Health Center plans to reach out to individual patients by phone to encourage them to schedule their vaccine appointments.  
