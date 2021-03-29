@@ -3,7 +3,7 @@
 **Author:** Lili Beit
 ***
 
-![Aerial view of a suburban neighborhood](images/Aerial-view-of-a-suburban-neighborhood_slice.png)
+![picture of vaccination syringe and medicine](images/vaccine.jpg)
 
 ## Overview
 Lovelace Health, a Federally Qualified Health Center, wishes to increase the proportion of its patients who receive the flu vaccine.  The Health Center plans to reach out to individual patients by phone to encourage them to schedule their vaccine appointments.  
@@ -31,7 +31,7 @@ I also tested a Decision Tree model, a bagged Decision Tree, a Random Forest, an
 
 ### Recommendations
 
-As shown in the [presentation](https://github.com/lilisbeit/vaccine-learning/blob/main/Vaccination-Outreach-Presentation.pdf), the most influential predictor of vaccination is whether or not the respondent's doctor recommended the flu vaccine. This suggests that reaching out to patients who have not had a doctor visit during flu season may improve vaccination rates. It also implies that patients trust their doctors and respond well to their advice.
+As described in the [presentation](https://github.com/lilisbeit/vaccine-learning/blob/main/Vaccination-Outreach-Presentation.pdf), the most influential predictor of vaccination is whether or not the respondent's doctor recommended the flu vaccine. This suggests that reaching out to patients who have not had a doctor visit during flu season may improve vaccination rates. It also implies that patients trust their doctors and respond well to their advice.
 
 ![graph](images/doc_rec.png)
 
