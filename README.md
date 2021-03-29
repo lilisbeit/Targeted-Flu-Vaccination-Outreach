@@ -23,9 +23,9 @@ The data contain over 20,000 survey responses, and show that about 47% of respon
 ## Modeling
 A [baseline logistic regression model](https://github.com/lilisbeit/vaccine-learning/blob/main/baseline-model.ipynb) produced a ROC-AUC score of 0.76 on both the training and test sets.
 
-After feature engineering to reduce the number of columns, a final logistic regression model had a ROC-AUC score of 0.78 for the test and train sets.  Feature engineering and modeling can be viewed in the [final model notebook](http://localhost:8888/notebooks/final-model.ipynb), as can the other models tested.
+After feature engineering to reduce the number of columns, a final logistic regression model had a ROC-AUC score of 0.78 for the test and train sets.  Feature engineering and modeling can be viewed in the [final model notebook](http://localhost:8888/notebooks/final-model.ipynb).
 
-I also tested a Decision Tree model, a bagged Decision Tree, a Random Forest, an XGBoost model using the 'gbtree' booster, an XGBoost model using the 'dart' booster, and a Support Vector Machine.  None improved on the performance of the Logistic Regression model, so I selected this as my final model.
+I also tested a Decision Tree model, a bagged Decision Tree, a Random Forest, an XGBoost model using the 'gbtree' booster, an XGBoost model using the 'dart' booster, and a Support Vector Machine.  None improved on the performance of the Logistic Regression model, so I selected this as my final model.  All models tested can be found in the [final model notebook](http://localhost:8888/notebooks/final-model.ipynb).
 
 ## Conclusions
 
